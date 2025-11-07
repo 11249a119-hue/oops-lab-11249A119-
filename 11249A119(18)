@@ -1,0 +1,53 @@
+EXP NO: 17
+
+AIM:
+To write a C++ program to demonstrate the concept of friend class, where all members of one class can access the private and protected members of another class.
+
+ALGORITHM:
+Start the program.
+Define a class (e.g., ClassA) with private data members.
+Declare another class (e.g., ClassB) as a friend class of ClassA.
+In ClassB, define a member function to access private members of ClassA.
+Create objects of both classes in main().
+Call the function of ClassB to access ClassA’s private members.
+Stop the program.
+
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+class ClassB; // Forward declaration
+
+class ClassA {
+private:
+    int num;
+
+public:
+    ClassA(int n) { num = n; }
+
+    // Declare ClassB as a friend
+    friend class ClassB;
+};
+
+class ClassB {
+public:
+    void show(ClassA a) {
+        // Accessing private member of ClassA
+        cout << "Value of num in ClassA: " << a.num << endl;
+    }
+};
+
+int main() {
+    ClassA a1(42);
+    ClassB b1;
+
+    b1.show(a1); // Access private member via friend class
+
+    return 0;
+}
+
+OUTPUT:
+Value of num in ClassA: 42
+
+RESULT:
+The program successfully demonstrates friend class, where all member functions of ClassB can access the private members of ClassA.
