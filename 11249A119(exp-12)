@@ -1,0 +1,63 @@
+EXP NO: 12
+
+AIM:
+To write a program in C++ to demonstrate:Passing objects as arguments to a member function.Returning an object from a member function.
+
+ALGORITHM:
+For Passing Object as Argument:
+Start the program.
+Define a class (e.g., Number) with a data member.
+Create a member function that accepts an object of the same class as a parameter.
+Perform operations using the passed object.
+For Returning Object:
+Define a member function that performs some operation and returns an object of the same class.
+Call the function from main() and store the returned object.
+Display the results.
+Stop the program.
+
+PROGRAM :
+#include <iostream>
+using namespace std;
+
+class Number {
+    int num;
+
+public:
+    // Constructor
+    Number(int n = 0) {
+        num = n;
+    }
+
+    // Function to add two Number objects (passing object as argument)
+    Number add(Number n) {
+        Number temp;
+        temp.num = num + n.num;
+        return temp; // returning object
+    }
+
+    // Function to display value
+    void display() {
+        cout << "Value: " << num << endl;
+    }
+};
+
+int main() {
+    Number n1(10), n2(20), n3;
+
+    // Passing object as argument and returning object
+    n3 = n1.add(n2);
+
+    cout << "First Number: "; n1.display();
+    cout << "Second Number: "; n2.display();
+    cout << "Sum: "; n3.display();
+
+    return 0;
+}
+
+OUTPUT :
+First Number: Value: 10
+Second Number: Value: 20
+Sum: Value: 30
+
+RESULT:
+The program successfully demonstrates:Passing objects as arguments to member functions.Returning objects from member functions in C++.
