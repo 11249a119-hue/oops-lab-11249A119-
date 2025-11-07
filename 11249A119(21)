@@ -1,0 +1,95 @@
+EXP NO : 21
+
+Aim :
+To implement assignment and comparison of two strings using binary operator overloading in C++.
+
+Algorithm :
+Start the program.
+Define a class MyString with a private character array (or std::string).
+Create a constructor to initialize the string.
+Overload the assignment operator (=) to copy one object’s string to another.
+Overload the comparison operator (==) to compare two strings.
+In main(), create two or more objects.
+Use the overloaded operators to perform assignment and comparison.
+Display the results.
+End the program.
+
+Program:
+#include <iostream>
+#include <cstring>   // for strcpy() and strcmp()
+using namespace std;
+
+class MyString {
+private:
+    char str[100];
+
+public:
+    // Default constructor
+    MyString() {
+        strcpy(str, "");
+    }
+
+    // Parameterized constructor
+    MyString(const char s[]) {
+        strcpy(str, s);
+    }
+
+    // Overloading assignment operator (=)
+    MyString operator=(const MyString &obj) {
+        strcpy(str, obj.str);
+        return *this;
+    }
+
+    // Overloading equality operator (==)
+    bool operator==(const MyString &obj) {
+        if (strcmp(str, obj.str) == 0)
+            return true;
+        else
+            return false;
+    }
+
+    // Display string
+    void display() {
+        cout << str;
+    }
+};
+
+int main() {
+    MyString s1("Hello"), s2("World"), s3;
+
+    cout << "String 1: ";
+    s1.display();
+    cout << "\nString 2: ";
+    s2.display();
+
+    // Assignment operator overloading
+    s3 = s1;
+    cout << "\n\nAfter assignment (s3 = s1): ";
+    s3.display();
+
+    // Comparison operator overloading
+    if (s1 == s3)
+        cout << "\n\ns1 and s3 are EQUAL";
+    else
+        cout << "\n\ns1 and s3 are NOT EQUAL";
+
+    if (s1 == s2)
+        cout << "\n\ns1 and s2 are EQUAL";
+    else
+        cout << "\n\ns1 and s2 are NOT EQUAL";
+
+    cout << endl;
+    return 0;
+}
+
+Output :
+String 1: Hello
+String 2: World
+
+After assignment (s3 = s1): Hello
+
+s1 and s3 are EQUAL
+s1 and s2 are NOT EQUAL
+
+Result :
+Assignment (=) and comparison (==) of two strings were successfully implemented using binary operator overloading in C++.
