@@ -1,0 +1,66 @@
+EXP NO : 14
+
+AIM:
+To write a C++ program to demonstrate the concept of static data members and static member functions, which are shared by all objects of a class.
+
+ALGORITHM:
+Start the program.
+Define a class (e.g., Student) with:
+A static data member count
+A static member function showCount()
+Increment the static member in the constructor whenever a new object is created.
+Call the static member function to display the count of objects.
+Observe that all objects share the same static data member.
+Stop the program.
+
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+class Student {
+    int roll;
+    string name;
+
+public:
+    static int count; // static data member
+
+    // Constructor
+    Student(int r, string n) {
+        roll = r;
+        name = n;
+        count++; // increment count whenever object is created
+    }
+
+    void display() {
+        cout << "Roll: " << roll << ", Name: " << name << endl;
+    }
+
+    // Static member function
+    static void showCount() {
+        cout << "Total Students: " << count << endl;
+    }
+};
+
+// Initialize static data member outside the class
+int Student::count = 0;
+
+int main() {
+    Student s1(1, "Alice");
+    Student s2(2, "Bob");
+
+    s1.display();
+    s2.display();
+
+    // Call static function using class name
+    Student::showCount();
+
+    return 0;
+}
+
+ OUTPUT:
+Roll: 1, Name: Alice
+Roll: 2, Name: Bob
+Total Students: 2
+
+RESULT:
+The program successfully demonstrates:Static data member count shared by all objects.Static member function showCount() can be called without any object and accesses the static data member.
