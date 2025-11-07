@@ -1,0 +1,77 @@
+EXP NO : 22
+
+Aim
+To implement single inheritance using public and private inheritance in Object-Oriented Programming (OOP) with C++.
+
+Algorithm :
+Start the program.
+Create a base class named Base with data members and member functions.
+Derive another class named DerivedPublic from Base using public inheritance.
+Derive another class named DerivedPrivate from Base using private inheritance.
+Show that in public inheritance, public members of the base class remain public in the derived class.
+Show that in private inheritance, public members of the base class become private in the derived class.
+Create objects of derived classes and access base class members as allowed by inheritance type.
+Display the output.
+Stop the program.
+
+Program :
+#include <iostream>
+using namespace std;
+
+// Base class
+class Base {
+protected:
+    int a;
+public:
+    void setData(int x) {
+        a = x;
+    }
+    void showData() {
+        cout << "Value of a = " << a << endl;
+    }
+};
+
+// Derived class using public inheritance
+class DerivedPublic : public Base {
+public:
+    void display() {
+        cout << "Publicly Inherited Class: ";
+        showData();
+    }
+};
+
+// Derived class using private inheritance
+class DerivedPrivate : private Base {
+public:
+    void setAndShow(int y) {
+        setData(y);
+        cout << "Privately Inherited Class: ";
+        showData();
+    }
+};
+
+int main() {
+    DerivedPublic obj1;
+    DerivedPrivate obj2;
+
+    cout << "Using Public Inheritance:" << endl;
+    obj1.setData(10);    // allowed (public remains public)
+    obj1.display();
+
+    cout << "\nUsing Private Inheritance:" << endl;
+    // obj2.setData(20); // not allowed — setData() becomes private in DerivedPrivate
+    obj2.setAndShow(20);
+
+    return 0;
+}
+
+Output :
+Using Public Inheritance:
+Publicly Inherited Class: Value of a = 10
+
+Using Private Inheritance:
+Privately Inherited Class: Value of a = 20
+
+
+Result :
+Thus, a C++ program demonstrating single inheritance using both public and private modes of inheritance was successfully implemented and verified
