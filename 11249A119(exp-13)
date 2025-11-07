@@ -1,0 +1,88 @@
+EXP NO:13
+
+AIM:
+To explain and demonstrate different types of constructors and destructors in C++ and understand how they are used to initialize and destroy objects automatically.
+
+ALGORITHM :
+Start the program.
+Define a class (e.g., Student) with data members like roll and name.
+Write different constructors:
+Default constructor
+Parameterized constructor
+Copy constructor
+Write a destructor to display when an object is destroyed.
+In main(), create objects using different constructors.
+Observe the destructor being called automatically when objects go out of scope.
+Stop the program.
+
+PROGRAM :
+#include <iostream>
+using namespace std;
+
+class Student {
+    int roll;
+    string name;
+
+public:
+    // Default Constructor
+    Student() {
+        roll = 0;
+        name = "Unknown";
+        cout << "Default Constructor called\n";
+    }
+
+    // Parameterized Constructor
+    Student(int r, string n) {
+        roll = r;
+        name = n;
+        cout << "Parameterized Constructor called\n";
+    }
+
+    // Copy Constructor
+    Student(const Student &s) {
+        roll = s.roll;
+        name = s.name;
+        cout << "Copy Constructor called\n";
+    }
+
+    // Destructor
+    ~Student() {
+        cout << "Destructor called for " << name << endl;
+    }
+
+    void display() {
+        cout << "Roll: " << roll << ", Name: " << name << endl;
+    }
+};
+
+int main() {
+    // Using Default Constructor
+    Student s1;
+    s1.display();
+
+    // Using Parameterized Constructor
+    Student s2(1, "Alice");
+    s2.display();
+
+    // Using Copy Constructor
+    Student s3 = s2;
+    s3.display();
+
+    return 0;
+}
+
+OUTPUT :
+Finished in 3 ms
+Default Constructor called
+Roll: 0, Name: Unknown
+Parameterized Constructor called
+Roll: 1, Name: Alice
+Copy Constructor called
+Roll: 1, Name: Alice
+Destructor called for Alice
+Destructor called for Alice
+Destructor called for Unknown
+
+RESULT :
+The program demonstrates:
+different types of constructors: default, parameterized, and copy constructors.Destructor automatically called to destroy objects and release resources.
