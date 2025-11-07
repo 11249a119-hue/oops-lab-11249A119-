@@ -1,0 +1,85 @@
+EXP NO :24
+
+Aim :
+To implement multilevel inheritance in C++ where a class is derived from another derived class, forming a chain of inheritance.
+
+Algorithm :
+Start the program.
+Create a base class Base with data members and member functions.
+Create a derived class Derived1 that inherits from Base.
+Create another derived class Derived2 that inherits from Derived1.
+Access data members and member functions of the base class using the object of Derived2.
+Display the results.
+Stop the program.
+
+Program :
+#include <iostream>
+using namespace std;
+
+// Base class
+class Base {
+protected:
+    int a;
+public:
+    void setA(int x) {
+        a = x;
+    }
+    void showA() {
+        cout << "Value of a = " << a << endl;
+    }
+};
+
+// First derived class
+class Derived1 : public Base {
+protected:
+    int b;
+public:
+    void setB(int y) {
+        b = y;
+    }
+    void showB() {
+        cout << "Value of b = " << b << endl;
+    }
+};
+
+// Second derived class (multilevel)
+class Derived2 : public Derived1 {
+private:
+    int c;
+public:
+    void setC(int z) {
+        c = z;
+    }
+    void showC() {
+        cout << "Value of c = " << c << endl;
+    }
+    void showSum() {
+        cout << "Sum of a, b, c = " << a + b + c << endl;
+    }
+};
+
+int main() {
+    Derived2 obj;
+
+    obj.setA(10);  // Base class member
+    obj.setB(20);  // Derived1 class member
+    obj.setC(30);  // Derived2 class member
+
+    cout << "Using Multilevel Inheritance:" << endl;
+    obj.showA();
+    obj.showB();
+    obj.showC();
+    obj.showSum();
+
+    return 0;
+}
+
+Output :
+Using Multilevel Inheritance:
+Value of a = 10
+Value of b = 20
+Value of c = 30
+Sum of a, b, c = 60
+
+Result :
+The program demonstrates multilevel inheritance, where Derived2 inherits from Derived1, which in turn inherits from Base, allowing access to all members in the hierarchy.
