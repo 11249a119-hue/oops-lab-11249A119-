@@ -1,0 +1,69 @@
+EXP NO :20
+
+Aim :
+To implement the use of binary operator overloading using object-oriented programming in C++.
+
+Algorithm :
+Start the program.
+Define a class (e.g., Number) with private data members.
+Create a constructor to initialize the data members.
+Declare and define a function to overload a binary operator (like +, -, *, or /).
+This function will take one argument (the right-hand operand).
+The left-hand operand is the calling object.
+Perform the required operation inside the overloaded operator function.
+Return the result as an object.
+In main(), create two objects and use the overloaded operator between them.
+Display the result.
+End the program.
+
+Program :
+#include <iostream>
+using namespace std;
+
+class Number {
+private:
+    int a;
+
+public:
+    // Constructor
+    Number(int x = 0) {
+        a = x;
+    }
+
+    // Overloading binary + operator
+    Number operator+(Number obj) {
+        Number temp;
+        temp.a = a + obj.a;  // 'a' of left object + 'a' of right object
+        return temp;
+    }
+
+    // Display function
+    void display() {
+        cout << "Value: " << a << endl;
+    }
+};
+
+int main() {
+    Number n1(10), n2(20), n3;
+
+    cout << "First number: ";
+    n1.display();
+
+    cout << "Second number: ";
+    n2.display();
+
+    n3 = n1 + n2;  // Using overloaded + operator
+
+    cout << "After adding objects: ";
+    n3.display();
+
+    return 0;
+}
+
+Output :
+First number: Value: 10
+Second number: Value: 20
+After adding objects: Value: 30
+
+Result :
+Binary operator (+) overloading is successfully implemented using OOP in C++.
