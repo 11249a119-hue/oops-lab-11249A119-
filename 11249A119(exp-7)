@@ -1,0 +1,77 @@
+EXP NO:7
+
+AIM:
+To write a C++ program to demonstrate member functions defined inside and outside the class.
+
+ALGORITHM :
+Start the program
+Define a class named Library.
+Inside the class:
+Declare data members like bookName, author, and price.
+Define one member function inside the class (e.g., getDetails() to take input).
+Declare another member function (e.g., displayDetails()), but only declare it here — define it outside the class using the scope resolution operator ::.
+In the main() function:
+Create an object of the class.
+Call both member functions.
+End the program
+
+PROGRAM :
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Library {
+private:
+    string bookName;
+    string author;
+    float price;
+
+public:
+    // Member function defined INSIDE the class
+    void getDetails() {
+        cout << "Enter Book Name: ";
+        getline(cin, bookName);
+        cout << "Enter Author Name: ";
+        getline(cin, author);
+        cout << "Enter Price: ";
+        cin >> price;
+    }
+
+    // Declaration of member function (to be defined OUTSIDE)
+    void displayDetails();
+};
+
+// Member function defined OUTSIDE the class
+void Library::displayDetails() {
+    cout << "\n--- Book Details ---" << endl;
+    cout << "Book Name : " << bookName << endl;
+    cout << "Author    : " << author << endl;
+    cout << "Price     : $" << price << endl;
+}
+
+int main() {
+    Library book;
+
+    cout << "=== Library Management System ===" << endl;
+
+    // Clear input buffer (important when using getline after cin)
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    book.getDetails();
+    book.displayDetails();
+
+    return 0;
+}
+
+OUTPUT:
+Enter Book Name: The C++ Programming Language
+Enter Author Name: Bjarne Stroustrup
+Enter Price: 59.99
+
+Book Details
+Book Name : The C++ Programming Language
+Author    : Bjarne Stroustrup
+Price     : 59.99
+
+RESULT :
+     The program was executed successfully
