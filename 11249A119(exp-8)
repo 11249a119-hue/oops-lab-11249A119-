@@ -1,0 +1,88 @@
+EXP NO: 8
+
+AIM :
+To write a C++ program to implement a Hospital Patient Record System and to demonstrate member functions defined inside and outside the class.
+
+ALGORITHM :
+Start the program.
+Define a class named Patient.
+Declare data members such as:
+patientName
+age
+disease
+roomNumber
+Define one member function inside the class (e.g., getDetails()) to take input.
+Declare another member function outside the class (displayDetails()) using the scope resolution operator ::.
+In the main() function:
+Create an object of the Patient class.
+Call getDetails() to input data.
+Call displayDetails() to display the patient record.
+Stop the program.
+
+PROGRAM :
+#include <iostream>
+#include <string>
+#include <limits>
+using namespace std;
+
+class Patient {
+private:
+    string patientName;
+    int age;
+    string disease;
+    int roomNumber;
+
+public:
+    // Member function defined INSIDE the class
+    void getDetails() {
+        cout << "Enter Patient Name: ";
+        getline(cin, patientName);
+        cout << "Enter Age: ";
+        cin >> age;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear buffer
+        cout << "Enter Disease: ";
+        getline(cin, disease);
+        cout << "Enter Room Number: ";
+        cin >> roomNumber;
+    }
+
+    // Declaration of member function (to be defined OUTSIDE the class)
+    void displayDetails();
+};
+
+// Member function defined OUTSIDE the class
+void Patient::displayDetails() {
+    cout << "\n--- Patient Record ---" << endl;
+    cout << "Patient Name : " << patientName << endl;
+    cout << "Age          : " << age << endl;
+    cout << "Disease      : " << disease << endl;
+    cout << "Room Number  : " << roomNumber << endl;
+}
+
+int main() {
+    Patient p;
+
+    cout << "=== Hospital Patient Record System ===\n";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ensure clean input
+    p.getDetails();
+    p.displayDetails();
+
+    return 0;
+
+OUTPUT:
+Enter Patient Name: John Doe
+Enter Age: 45
+Enter Disease: Pneumonia
+Enter Room Number: 203
+
+
+Patient Name : John Doe
+Age          : 45
+Disease      : Pneumonia
+Room Number  : 203
+
+ RESULT:
+The program successfully demonstrates:
+A C++ class with both inside and outside member function definitions.
+Use of the scope resolution operator (::).
+A Hospital Patient Record System that stores and displays patient details.
