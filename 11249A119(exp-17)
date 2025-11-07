@@ -1,0 +1,50 @@
+EXP NO:
+
+AIM:
+To write a C++ program to demonstrate the concept of friend function, which can access private and protected members of a class without being a member of the class.
+
+ALGORITHM:
+Start the program.
+Define a class (e.g., Rectangle) with private data members like length and width.
+Declare a friend function inside the class.
+Define the friend function outside the class.
+Call the friend function in main() by passing the object(s) of the class.
+The friend function can access private members of the class.
+Stop the program.
+
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+    int length, width;
+
+public:
+    // Constructor
+    Rectangle(int l, int w) {
+        length = l;
+        width = w;
+    }
+
+    // Friend function declaration
+    friend int area(Rectangle r);
+};
+
+// Friend function definition
+int area(Rectangle r) {
+    return r.length * r.width; // Accessing private members
+}
+
+int main() {
+    Rectangle rect(10, 5);
+
+    cout << "Area of Rectangle: " << area(rect) << endl;
+
+    return 0;
+}
+
+OUTPUT:
+Area of Rectangle: 50
+
+RESULT:
+The program successfully demonstrates friend function, which can access the private members of a class without being a member of the class.
