@@ -1,0 +1,73 @@
+EXP NO :23
+
+Aim :
+To implement the concept of multiple inheritance in Object-Oriented Programming (OOP) using C++.
+
+Algorithm :
+Start the program.
+Create two base classes, Base1 and Base2, each with data members and member functions.
+Create a derived class, Derived, that inherits from both Base1 and Base2.
+Access and display the members of both base classes through the derived class object.
+Stop the program.
+
+Program :
+#include <iostream>
+using namespace std;
+
+// First Base class
+class Base1 {
+protected:
+    int x;
+public:
+    void setX(int a) {
+        x = a;
+    }
+    void showX() {
+        cout << "Value of x = " << x << endl;
+    }
+};
+
+// Second Base class
+class Base2 {
+protected:
+    int y;
+public:
+    void setY(int b) {
+        y = b;
+    }
+    void showY() {
+        cout << "Value of y = " << y << endl;
+    }
+};
+
+// Derived class inheriting from Base1 and Base2
+class Derived : public Base1, public Base2 {
+public:
+    void displaySum() {
+        cout << "Sum of x and y = " << x + y << endl;
+    }
+};
+
+int main() {
+    Derived obj;
+
+    obj.setX(10);   // from Base1
+    obj.setY(20);   // from Base2
+
+    cout << "Using Multiple Inheritance:" << endl;
+    obj.showX();    // from Base1
+    obj.showY();    // from Base2
+    obj.displaySum(); // from Derived
+
+    return 0;
+}
+
+Output :
+Using Multiple Inheritance:
+Value of x = 10
+Value of y = 20
+Sum of x and y = 30
+
+Result :
+The C++ program successfully demonstrates multiple inheritance, where the Derived class inherits properties and functions from two base classes and uses them together
+
