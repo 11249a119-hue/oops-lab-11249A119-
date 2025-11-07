@@ -1,0 +1,46 @@
+EXP NO :
+
+AIM:
+To write a C++ program to demonstrate the use of inline functions, which reduces function call overhead by inserting the function code directly at the call site.
+
+ALGORITHM:
+Start the program.
+Declare a class or standalone function.
+Define a small function as inline.
+Call the inline function in main().
+Observe the output.
+Stop the program.
+
+PROGRAM :
+#include <iostream>
+using namespace std;
+
+class Math {
+public:
+    // Inline function to add two numbers
+    inline int add(int a, int b) {
+        return a + b;
+    }
+
+    // Inline function to multiply two numbers
+    inline int multiply(int a, int b) {
+        return a * b;
+    }
+};
+
+int main() {
+    Math m;
+    int x = 5, y = 10;
+
+    cout << "Sum: " << m.add(x, y) << endl;
+    cout << "Product: " << m.multiply(x, y) << endl;
+
+    return 0;
+}
+
+ OUTPUT:
+Sum: 15
+Product: 50
+
+RESULT:
+The program successfully demonstrates the use of inline functions, which allows the function code to be inserted at the call site, reducing function call overhead.
