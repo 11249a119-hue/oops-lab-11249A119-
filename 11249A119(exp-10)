@@ -1,0 +1,71 @@
+EXP NO :10
+
+AIM:
+To write a program in C++ to demonstrate the concept of a destructor, which automatically destroys objects and releases resources when the object goes out of scope.
+
+ALGORITHM:
+Start the program.
+Define a class (e.g., Student) with data members such as roll number, name, and marks.
+Create a constructor to initialize the object (optional, for demonstration).
+Define a destructor using ~ClassName() that executes automatically when the object is destroyed.
+In the main() function:
+Create objects of the class.
+Observe the destructor being called automatically when the object goes out of scope or program ends.
+Stop the program.
+
+ PROGRAM:
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    int roll;
+    string name;
+    float marks;
+
+public:
+    // Constructor
+    Student(int r, string n, float m) {
+        roll = r;
+        name = n;
+        marks = m;
+        cout << "Constructor called for " << name << endl;
+    }
+
+    // Destructor
+    ~Student() {
+        cout << "Destructor called for " << name << endl;
+    }
+
+    // Function to display student details
+    void display() {
+        cout << "Roll No: " << roll << endl;
+        cout << "Name: " << name << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    // Creating objects
+    Student s1(1, "Alice", 89.5);
+    Student s2(2, "Bob", 76.0);
+
+    cout << "\nStudent 1 details:\n";
+    s1.display();
+
+    cout << "\nStudent 2 details:\n";
+    s2.display();
+
+    return 0;
+}
+
+OUTPUT:
+Roll No: 1
+Name: Alice
+Marks: 89.5
+Roll No: 2
+Name: Bob
+Marks:7.60
+
+RESULT:
+The program successfully demonstrates the concept of a destructor, which is automatically called to release resources or perform cleanup when an object goes out of scope.
