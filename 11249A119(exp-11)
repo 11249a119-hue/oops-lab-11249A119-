@@ -1,0 +1,54 @@
+EXP no: 11
+
+AIM:
+To write a C++ program to demonstrate function overloading of member functions, where multiple functions have the same name but different parameters in the same class.
+
+ALGORITHM:
+Start the program.
+Define a class (e.g., Calculator).
+Create multiple member functions with the same name but different parameters (number, type, or order of parameters).
+In the main() function:
+Create an object of the class.
+Call the overloaded functions with appropriate arguments.
+Observe that the compiler selects the correct function based on the arguments.
+Stop the program.
+
+PROGRAM :
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    // Function to add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Function to add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Function to add two double values
+    double add(double a, double b) {
+        return a + b;
+    }
+};
+
+int main() {
+    Calculator calc;
+
+    cout << "Addition of 2 integers: " << calc.add(5, 10) << endl;
+    cout << "Addition of 3 integers: " << calc.add(5, 10, 15) << endl;
+    cout << "Addition of 2 doubles: " << calc.add(5.5, 10.5) << endl;
+
+    return 0;
+}
+
+OUTPUT :
+Addition of 2 integers: 15
+Addition of 3 integers: 30
+Addition of 2 doubles: 16
+
+RESULT :
+The program successfully demonstrates member function overloading in C++, where multiple functions have the same name but differ in parameters, and the compiler selects the appropriate function automatically.
