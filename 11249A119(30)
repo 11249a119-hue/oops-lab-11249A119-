@@ -1,0 +1,64 @@
+EXP NO:30
+
+AIM:
+To implement and demonstrate the concept of file handling (reading from and writing to a file) in C++.
+
+ALGORITHM:
+Start the program.
+Include the header file <fstream> for file operations.
+Create an ofstream object to write data into a file.
+Open the file using the open() function or constructor.
+Write data to the file using the insertion operator (<<).
+Close the file using the close() function.
+Create an ifstream object to read data from the file.
+Open the file again for reading.
+Read and display the contents using the extraction operator (>>) or getline().
+Close the file and end the program.
+
+PROGRAM:
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    string name;
+    int age;
+
+    // Writing to a file
+    ofstream outFile("student.txt"); // Create and open file for writing
+    cout << "Enter your name: ";
+    getline(cin, name);
+    cout << "Enter your age: ";
+    cin >> age;
+
+    outFile << "Name: " << name << endl;
+    outFile << "Age: " << age << endl;
+    outFile.close();
+    cout << "\nData written to file successfully.\n";
+
+    // Reading from the file
+    ifstream inFile("student.txt"); // Open file for reading
+    string line;
+
+    cout << "\nReading data from file:\n";
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+
+    return 0;
+    }
+    
+    
+OUTPUT:
+Enter your name: John Doe
+Enter your age: 20
+
+Data written to file successfully.
+
+Reading data from file:
+Name: John Doe
+Age: 20
+
+RESULT:
+The program successfully demonstrates file handling in C++ by writing data to a file and then reading it back.
