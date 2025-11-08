@@ -1,0 +1,76 @@
+EXP NO : 32
+
+AIM:
+To implement and demonstrate the use of user-defined functions inside a class using Object-Oriented Programming concepts in C++.
+
+ALGORITHM:
+Start the program.
+Create a class named Student.
+Define data members like name and marks.
+Define user-defined member functions:
+getData() – to accept student details.
+displayData() – to display student details.
+grade() – to calculate and display the student’s grade.
+Create an object of the class in the main() function.
+Call the member functions using the object.
+Display the results.
+End the program.
+
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+class Student {
+    string name;
+    int marks;
+
+public:
+    // User-defined function to get input
+    void getData() {
+        cout << "Enter student name: ";
+        getline(cin, name);
+        cout << "Enter marks: ";
+        cin >> marks;
+    }
+
+    // User-defined function to display details
+    void displayData() {
+        cout << "\nStudent Name: " << name << endl;
+        cout << "Marks: " << marks << endl;
+    }
+
+    // User-defined function to calculate grade
+    void grade() {
+        if (marks >= 90)
+            cout << "Grade: A+" << endl;
+        else if (marks >= 75)
+            cout << "Grade: A" << endl;
+        else if (marks >= 60)
+            cout << "Grade: B" << endl;
+        else if (marks >= 40)
+            cout << "Grade: C" << endl;
+        else
+            cout << "Grade: Fail" << endl;
+    }
+};
+
+int main() {
+    Student s; // Create object
+
+    s.getData();      // Call user-defined function
+    s.displayData();  // Call user-defined function
+    s.grade();        // Call user-defined function
+
+    return 0;
+}
+
+ OUTPUT:
+Enter student name: John
+Enter marks: 82
+
+Student Name: John
+Marks: 82
+Grade: A
+
+RESULT:
+The program successfully demonstrates the use of user-defined functions within a class in C++.
