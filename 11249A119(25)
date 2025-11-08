@@ -1,0 +1,57 @@
+EXP NO:25
+
+AIM:
+To implement and demonstrate the use of the this pointer and inline function using Object-Oriented Programming concepts in C++.
+
+ALGORITHM:
+Start the program.
+Create a class named Student.
+Define data members such as name and marks.
+Define a member function setData() that uses the this pointer to assign values to data members.
+Define an inline function display() to print the student details.
+In the main() function, create an object of the class.
+Call the member functions using the object.
+Display the results.
+End the program.
+
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+class Student {
+    string name;
+    int marks;
+
+public:
+    // Using 'this' pointer
+    void setData(string name, int marks) {
+        this->name = name;      // 'this' pointer differentiates between data member and parameter
+        this->marks = marks;
+    }
+
+    // InliStudent Name: John
+Marks: 85ne function to display data
+    inline void display() {
+        cout << "Student Name: " << name << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    Student s1;
+
+    s1.setData("John", 85);
+    s1.display();
+
+    return 0;
+}
+
+
+OUTPUT :
+Student Name: John
+Marks: 85
+
+RESULT :
+The program successfully demonstrates the use of the this pointer to access class data members and the use of an inline function in C++.
+
+OUTPUT :
