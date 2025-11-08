@@ -1,0 +1,81 @@
+EXP NO:35
+
+Aim :
+To create a web application that calculates the factorial of a number using Object-Oriented Programming (OOP) principles and displays the result to the user.
+
+Algorithm :
+Start.
+Input a number n.
+Create a class FactorialCalculator with:
+A constructor to store the number.
+A method calculate() to compute factorial.
+In calculate() method:
+If n < 0, return “Invalid input”.
+Initialize factorial = 1.
+Loop from 1 to n, multiplying factorial *= i.
+Return factorial.
+Display the result.
+Stop.
+
+Program :
+#include <stdio.h>
+
+// OOP-style structure
+struct Calculator {
+    int number;
+};
+
+// Function to calculate factorial
+long long factorial(struct Calculator *calc) {
+    if (calc->number < 0) {
+        return -1; // Invalid input
+    }
+    long long fact = 1;
+    for (int i = 1; i <= calc->number; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+// Function to save record to file
+void save_record(int num, long long result) {
+    FILE *file = fopen("records.txt", "a");
+    if (file != NULL) {
+        if(result == -1)
+            fprintf(file, "Number: %d, Result: Invalid input\n", num);
+        else
+            fprintf(file, "Number: %d, Factorial: %lld\n", num, result);
+        fclose(file);
+    }
+}
+
+int main() {
+    struct Calculator calc;
+    long long result;
+
+    printf("Enter a number: ");
+    scanf("%d", &calc.number);
+
+    result = factorial(&calc);
+
+    if (result == -1)
+        printf("Invalid input\n");
+    else
+        printf("Factorial of %d is %lld\n", calc.number, result);
+
+    save_record(calc.number, result);
+
+    printf("Record saved to 'records.txt'\n");
+
+    return 0;
+}
+
+OUTPUT:
+Enter a number: Factorial of 0 is 1
+Record saved to 'records.txt'
+
+Result
+
+The program calculates factorial using OOP-style structure and functions.
+Negative inputs are handled gracefully.
+Each result is saved in records.txt, acting like a record system in web apps.
