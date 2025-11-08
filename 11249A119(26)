@@ -1,0 +1,72 @@
+EXP NO :26
+
+AIM:
+To implement and demonstrate the concept of pure virtual functions and abstract classes in C++.
+
+ALGORITHM:
+Start the program.
+Create an abstract base class named Shape.
+Declare a pure virtual function area() inside the class.
+Derive subclasses like Circle and Rectangle from Shape.
+Define the area() function separately in each derived class to compute their respective areas.
+In the main() function, use a base class pointer to access derived class objects.
+Display the area of each shape.
+End the program.
+
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+// Abstract base class
+class Shape {
+public:
+    // Pure virtual function
+    virtual void area() = 0;
+};
+
+// Derived class 1
+class Circle : public Shape {
+    float radius;
+public:
+    Circle(float r) {
+        radius = r;
+    }
+    void area() {
+        cout << "Area of Circle = " << 3.14 * radius * radius << endl;
+    }
+};
+
+// Derived class 2
+class Rectangle : public Shape {
+    float length, breadth;
+public:
+    Rectangle(float l, float b) {
+        length = l;
+        breadth = b;
+    }
+    void area() {
+        cout << "Area of Rectangle = " << length * breadth << endl;
+    }
+};
+
+int main() {
+    Shape *shape;  // Base class pointer
+
+    Circle c(5);
+    Rectangle r(4, 6);
+
+    shape = &c;
+    shape->area();  // Calls Circle's area()
+
+    shape = &r;
+    shape->area();  // Calls Rectangle's area()
+
+    return 0;
+}
+
+OUTPUT:
+Area of Circle = 78.5
+Area of Rectangle = 24
+
+RESULT:
+The program successfully demonstrates the use of a pure virtual function to achieve runtime polymorphism using an abstract base class in C++.
