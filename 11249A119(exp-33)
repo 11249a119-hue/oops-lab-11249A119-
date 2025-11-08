@@ -1,0 +1,53 @@
+EXP NO :33
+
+AIM:
+To implement and demonstrate the concept of interrupt handling in C++ using signal handling.
+
+ALGORITHM:
+Start the program.
+Include the header file <csignal> for signal handling.
+Define a user-defined class (for example, InterruptHandler).
+Inside the class, define a static function to handle interrupts.
+Use the signal() function to register the interrupt handler (for SIGINT).
+Run an infinite loop to simulate continuous execution.
+When the user presses Ctrl + C, the interrupt handler function gets executed.
+Display a message indicating the interrupt has been caught.
+End the program.
+
+PROGRAM:
+#include <iostream>
+#include <csignal>
+#include <unistd.h>   // For sleep()
+using namespace std;
+
+class InterruptHandler {
+public:
+    static void handleInterrupt(int signalNum) {
+        cout << "\nInterrupt signal (" << signalNum << ") received!" << endl;
+        cout << "Gracefully shutting down program..." << endl;
+        exit(signalNum);
+    }
+};
+
+int main() {
+    // Register signal handler for Ctrl+C (SIGINT)
+    signal(SIGINT, InterruptHandler::handleInterrupt);
+
+    cout << "Program running. Press Ctrl + C to trigger interrupt..." << endl;
+
+    while (true) {
+        cout << "Working..." << endl;
+        sleep(2);  // Pause for 2 seconds
+    }
+
+    return 0;
+}
+
+OUTPUT :
+Program running. Press Ctrl + C to trigger interrupt...
+Working...
+Working...
+
+RESULT:
+The program successfully demonstrates interrupt handling in C++ by catching the SIGINT signal (Ctrl + C) using a user-defined class and static function, showcasing the concept of graceful program termination using OOP principles.
+
