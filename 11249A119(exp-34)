@@ -1,0 +1,41 @@
+EXP NO: 34
+
+AIM:
+To implement and demonstrate the use of stack container in STL.
+
+ALGORITHM :
+Start the program.
+Include the required header file for STL (<vector>, <list>, <map>, <stack>).
+Use using namespace std;.
+Declare the STL container (vector, list, map, or stack).
+Insert elements into the container.
+Display the elements using a loop.
+Perform any operations like push, pop, or search (if needed).
+End the program.
+
+PROGRAM:
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> s;
+
+    s.push(10);
+    s.push(20);
+    s.push(30);
+
+    cout << "Top element: " << s.top() << endl;
+
+    s.pop();
+    cout << "Top after pop: " << s.top() << endl;
+
+    return 0;
+}
+
+OUTPUT:
+Top element: 30
+Top after pop: 20
+
+RESULT:
+The program successfully demonstrates the use of a stack container in STL.
